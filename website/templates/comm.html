@@ -1,0 +1,25 @@
+{% extends "base.html"%} {% block title%}Community {%endblock%}
+
+{%block content%}
+<h1 align="center">Community Posts</h1>
+<ul class = "list-group list-group-flush" id='notes'>
+
+   
+
+    {%for note in usr%}
+    {%set x = note.user_id%}
+    {%for pers in Use%}
+    {%if x== pers.id%}
+     <li  class="list-group-item">{{pers.first_name}}:&nbsp;&nbsp;{{note.data}}                    </li> 
+     {%endif%}
+{% endfor %}
+{% endfor %}
+
+</ul>
+<form method='POST'>
+    <textarea name = 'Cnote' id='Cnote'class='form-control'></textarea>
+    <div align='center'>
+        <button type="submit" class='btn btn-primary'>Add Community Post</button>
+    </div>
+</form>
+    {%endblock%}
